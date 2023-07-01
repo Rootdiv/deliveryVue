@@ -1,13 +1,13 @@
 <template>
-  <div class="wrapper-text">123</div>
+  <NuxtLayout />
 </template>
 
-<style scoped lang="scss">
-  .wrapper {
-    &-text {
-      width: 10px;
-      height: 10px;
-      color: red;
-    }
-  }
-</style>
+<script setup>
+  import userTemplateStore from '@/store/modules/template.ts';
+
+  const root = useNuxtApp();
+  const { template: TemplateModel } = root.$models;
+
+  console.log('TemplateModel: ', TemplateModel.getInfo());
+  console.log('userTemplateStore: ', userTemplateStore);
+</script>
