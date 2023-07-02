@@ -38,7 +38,7 @@
         height: 29.6rem;
       }
 
-      &:has(> .image.isImageLoading) {
+      &:has(> .image.is-image-loading) {
         .image-wrapper-skeleton {
           position: absolute;
           z-index: 2;
@@ -160,7 +160,7 @@
           height: 29.6rem;
         }
 
-        &:has(> .image.isImageLoading) {
+        &:has(> .image.is-image-loading) {
           .image-wrapper-skeleton {
             position: absolute;
             z-index: 2;

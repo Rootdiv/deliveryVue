@@ -126,7 +126,7 @@
       &-wrapper {
         position: relative;
 
-        &:has(> .image.isImageLoading) {
+        &:has(> .image.is-image-loading) {
           .image-skeleton {
             position: absolute;
             z-index: 2;
