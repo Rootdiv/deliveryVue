@@ -1,6 +1,6 @@
 <template>
   <v-section :is-full="true" class="section-banner-carousel">
-    <BlockBannerCarouselList :banners="banners" :loading="pending" />
+    <BlockBannerCarouselList :banners="bannerAdapter.getBanners(banners)" :loading="pending" />
   </v-section>
 </template>
 
@@ -10,13 +10,10 @@
   const root = useNuxtApp();
 
   const { banner: bannerService } = root.$services;
+  const { banner: bannerAdapter } = root.$adapter;
 
-  const banners = ref([]);
-  const pending = ref(true);
-
-  onBeforeMount(async () => {
-    banners.value = await bannerService.getBanners();
-    pending.value = false;
+  const { data: banners, pending } = useAsyncData(() => {
+    return bannerService.getBanners();
   });
 </script>
 

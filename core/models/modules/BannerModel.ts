@@ -17,6 +17,13 @@ export default (context: nuxtContext) => {
       this.id = null;
       this.image = null;
     }
+
+    toObject() {
+      return {
+        id: this.id,
+        image: this.image,
+      };
+    }
   }
 
   context.$models.banner = BannerModel;

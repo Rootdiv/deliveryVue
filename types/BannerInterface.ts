@@ -1,4 +1,5 @@
 export interface IBanner {
+  toObject(): unknown;
   id: number | null;
 
   image:

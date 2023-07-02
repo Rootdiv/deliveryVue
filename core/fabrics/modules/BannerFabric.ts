@@ -11,12 +11,16 @@ export default (context: nuxtContext) => {
 
     create({ id, image }: IBanner) {
       const banner: IBanner = new BannerFabric.BannerModel();
-      const bannerImage = typeof image === 'string' ? images[image] : '';
+
+      const isBannerImageString = typeof image === 'string';
+
       banner.id = id || Date.now();
-      banner.image = {
-        src: bannerImage,
-        alt: '',
-      };
+      banner.image = isBannerImageString
+        ? {
+            src: images[image],
+            alt: '',
+          }
+        : image;
       return banner;
     }
   }
