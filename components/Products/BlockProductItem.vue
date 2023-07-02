@@ -241,6 +241,7 @@
           }
 
           .plus {
+            text-align: center;
 
             /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
             &:deep(svg) {
@@ -250,6 +251,7 @@
           }
 
           .minus {
+            text-align: center;
 
             /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
             &:deep(svg) {
