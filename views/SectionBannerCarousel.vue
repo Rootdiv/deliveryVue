@@ -10,7 +10,7 @@
   const root = useNuxtApp();
 
   const { banner: bannerService } = root.$services;
-  const { banner: bannerAdapter } = root.$adapter;
+  const { banner: bannerAdapter } = root.$adapters;
 
   const { data: banners, pending } = useAsyncData(() => {
     return bannerService.getBanners();

@@ -2,8 +2,9 @@ import { nuxtContext } from '@nuxt/types';
 import { coreFunctionList } from '@/types/ICore.ts';
 import APIClientService from '@/core/services/modules/APIClientService.ts';
 import BannerService from '@/core/services/modules/BannerService.ts';
+import ProductService from '@/core/services/modules/ProductService.ts';
 
-const serviceList: coreFunctionList = [APIClientService, BannerService];
+const serviceList: coreFunctionList = [APIClientService, BannerService, ProductService];
 
 export default (context: nuxtContext) => {
   class ServicesLocator {}
