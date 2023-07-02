@@ -5,6 +5,12 @@ export default defineNuxtConfig({
     pageTransition: { name: 'page' },
     layoutTransition: { name: 'layout' },
   },
+  runtimeConfig: {
+    public: {
+      baseApiUrl: process.env.API_BASE_URL,
+      nodeEnv: process.env.NODE_ENV,
+    },
+  },
   vite: {
     css: {
       preprocessorOptions: {
@@ -19,5 +25,15 @@ export default defineNuxtConfig({
     },
   },
   css: [{ src: '~/assets/styles/index.scss', lang: 'scss' }],
-  modules: ['@nuxtjs/stylelint-module', '@nuxtjs/eslint-module', ['@pinia/nuxt', { disableVuex: false }], 'nuxt-icons'],
+  modules: [
+    '@nuxtjs/stylelint-module',
+    '@nuxtjs/eslint-module',
+    ['@pinia/nuxt', { disableVuex: false }],
+    'nuxt-icons',
+    'nuxt-lazy-load',
+  ],
+  lazyLoad: {
+    loadingClass: 'is-image-loading',
+    directiveOnly: true,
+  },
 });

@@ -1,11 +1,11 @@
 import { nuxtContext } from '@nuxt/types';
 import { coreFunctionList } from '@/types/ICore.ts';
-import TemplateModel from '@/core/models/modules/TemplateModel.ts';
+import BannerModel from '@/core/models/modules/BannerModel.ts';
 
-const modelList: coreFunctionList = [TemplateModel];
+const modelList: coreFunctionList = [BannerModel];
 
 export default (context: nuxtContext) => {
   class ModelsLocator {}
   context.$models = new ModelsLocator();
-  modelList.forEach(fn => fn(context));
+  modelList.forEach((fn) => fn(context));
 };

@@ -1,6 +1,5 @@
-
 // FADE(POPUPS & etc) //
-.fade-enter-from{
+.fade-enter-from {
   opacity: 0;
 }
 
@@ -14,14 +13,15 @@
   opacity: 0;
 }
 
-
 // LAYOUTS //
-.layout-enter-active, .layout-leave-active {
-  transition: opacity 0.5s
+.layout-enter-active,
+.layout-leave-active {
+  transition: opacity 0.5s;
 }
 
-.layout-enter, .layout-leave-active {
-  opacity: 0
+.layout-enter,
+.layout-leave-active {
+  opacity: 0;
 }
 
 // PAGES //

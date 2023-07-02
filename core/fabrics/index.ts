@@ -1,11 +1,11 @@
 import { nuxtContext } from '@nuxt/types';
 import { coreFunctionList } from '@/types/ICore.ts';
-import TemplateFabric from '@/core/fabrics/modules/TemplateFabric.ts';
+import BannerFabric from '@/core/fabrics/modules/BannerFabric.ts';
 
-const fabricList: coreFunctionList = [TemplateFabric];
+const fabricList: coreFunctionList = [BannerFabric];
 
 export default (context: nuxtContext) => {
   class FabricLocator {}
   context.$fabrics = new FabricLocator();
-  fabricList.forEach(fn => fn(context));
+  fabricList.forEach((fn) => fn(context));
 };

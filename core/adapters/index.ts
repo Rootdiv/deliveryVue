@@ -1,11 +1,11 @@
 import { nuxtContext } from '@nuxt/types';
 import { coreFunctionList } from '@/types/ICore.ts';
-import TemplateAdapter from '@/core/adapters/modules/TemplateAdapter.ts';
+import BannerAdapter from '@/core/adapters/modules/BannerAdapter.ts';
 
-const adapterList: coreFunctionList = [TemplateAdapter];
+const adapterList: coreFunctionList = [BannerAdapter];
 
 export default (context: nuxtContext) => {
   class AdapterLocator {}
   context.$adapters = new AdapterLocator();
-  adapterList.forEach(fn => fn(context));
+  adapterList.forEach((fn) => fn(context));
 };

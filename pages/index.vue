@@ -1,3 +1,7 @@
 <template>
-  <div>123</div>
+  <SectionBannerCarousel />
 </template>
+
+<script setup>
+  import SectionBannerCarousel from '@/views/SectionBannerCarousel.vue';
+</script>

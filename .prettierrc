@@ -5,10 +5,9 @@
   "trailingComma": "all",
   "useTabs": false,
   "semi": true,
-  "jsxBracketSameLine": true,
   "bracketSameLine": true,
   "printWidth": 120,
-  "arrowParens": "avoid",
+  "arrowParens": "always",
   "vueIndentScriptAndStyle": true,
-  "endOfLine": "auto"
+  "endOfLine": "lf"
 }

@@ -19,7 +19,7 @@ const basisComponents = [
 ];
 
 export default defineNuxtPlugin((context: nuxtContext) => {
-  basisComponents.forEach(packageItem => {
+  basisComponents.forEach((packageItem) => {
     context.vueApp.component(packageItem.name, packageItem.component);
   });
 });

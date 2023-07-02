@@ -43,7 +43,6 @@
   }
 }
 
-
 @mixin desktop {
   @media screen and (min-width: 1024px) {
     @content;
@@ -55,7 +54,6 @@
     @content;
   }
 }
-
 
 $max-width: 144;
 @mixin adaptive-font($pc-size, $mob-size) {
