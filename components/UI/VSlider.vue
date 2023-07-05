@@ -35,7 +35,7 @@
   onMounted(() => {
     if (props.needSlider) {
       swiper.value = new Swiper(slider.value, props.sliderSettings);
-      swiper.value.on('slideChang', () => {
+      swiper.value.on('slideChange', () => {
         emit('slide-change', swiper.value.realIndex);
       });
     }

@@ -1,8 +1,10 @@
 <template>
-  <SectionBannerCarousel />
-  <SectionProducts v-bind="productsColdsSacksData" />
-  <SectionProducts v-bind="productsHotSnacksData" />
-  <SectionProducts v-bind="productsMeatData" />
+  <div>
+    <SectionBannerCarousel />
+    <SectionProducts v-bind="productsColdsSacksData" />
+    <SectionProducts v-bind="productsHotSnacksData" />
+    <SectionProducts v-bind="productsMeatData" />
+  </div>
 </template>
 
 <script setup>

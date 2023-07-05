@@ -43,7 +43,7 @@
         loop: false,
         autoplay: {
           delay: 1000,
-          disebleOninteraction: false,
+          disableOnInteraction: false,
         },
       }),
     },
