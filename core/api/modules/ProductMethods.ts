@@ -1,8 +1,9 @@
 import { nuxtContext } from '@nuxt/types';
+import { IEndpoints } from '@/types/IEndpointsInterface.ts';
 
 export default (context: nuxtContext) => {
   class ProductMethods {
-    private static endpoints = context.$configs.endpoints;
+    private static endpoints: IEndpoints = context.$configs.endpoints;
 
     async getProducts(params = {}) {
       const config = ProductMethods.endpoints.product.getProducts(params);

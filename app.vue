@@ -1,3 +1,3 @@
 <template>
-  <NuxtLayout />
+  <nuxt-layout />
 </template>

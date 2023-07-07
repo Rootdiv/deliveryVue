@@ -1,7 +1,8 @@
 import { nuxtContext } from '@nuxt/types';
+import { IEndpoints } from '@/types/IEndpointsInterface.ts';
 
 export default (context: nuxtContext) => {
-  const endpoints = {
+  const endpoints: IEndpoints = {
     banner: {
       getBanners: (params = {}) => ({ url: '/banners', method: 'GET', params }),
     },

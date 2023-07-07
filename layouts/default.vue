@@ -1,18 +1,18 @@
 <template>
   <v-layout>
     <template #page-header>
-      <BlockHeader />
+      <block-header />
     </template>
     <template #page-content>
-      <NuxtPage />
+      <nuxt-page />
     </template>
     <template #page-footer>
-      <BlockFooter />
+      <block-footer />
     </template>
   </v-layout>
 </template>
 
 <script setup>
-  import BlockHeader from '@/components/BlockHeader.vue';
-  import BlockFooter from '@/components/BlockFooter.vue';
+  import BlockHeader from '@/components/Layouts/BlockHeader.vue';
+  import BlockFooter from '@/components/Layouts/BlockFooter.vue';
 </script>

@@ -3,12 +3,12 @@
     <v-row tag="ul" :is-wrap="false" :class="{ 'slider swiper-wrapper': needSlider }">
       <template v-if="loading">
         <v-col v-for="(item, index) in 4" :key="index" :col="3" :md="4" :sm="2" :class="{ 'swiper-slide': needSlider }">
-          <SkeletonProductItem />
+          <skeleton-product-item />
         </v-col>
       </template>
       <template v-else>
         <v-col v-for="item in list" :key="item.id" :col="3" :md="4" :sm="2" :class="{ 'swiper-slide': needSlider }">
-          <BlockProductItem v-bind="item" />
+          <block-product-item v-bind="item" />
         </v-col>
       </template>
     </v-row>

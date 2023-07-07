@@ -1,6 +1,6 @@
 <template>
   <v-section :is-full="true" class="section-banner-carousel">
-    <BlockBannerCarouselList :banners="bannerAdapter.getBanners(banners)" :loading="pending" />
+    <block-banner-carousel-list :banners="bannerAdapter.getBanners(banners)" :loading="pending" />
   </v-section>
 </template>
 
@@ -12,9 +12,7 @@
   const { banner: bannerService } = root.$services;
   const { banner: bannerAdapter } = root.$adapters;
 
-  const { data: banners, pending } = useAsyncData(() => {
-    return bannerService.getBanners();
-  });
+  const { data: banners, pending } = useAsyncData(() => bannerService.getBanners());
 </script>
 
 <style lang="scss" scoped>

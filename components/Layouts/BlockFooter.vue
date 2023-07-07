@@ -5,7 +5,8 @@
         <div class="footer-info">
           <p class="footer__logotype">LOGOS</p>
           <p class="footer__copyright">
-            © ООО «ЛОГОС»<br />Все права защищены. <time datetime="2010">2010</time>-<time datetime="2023">2023</time>
+            &copy; ООО &laquo;ЛОГОС&raquo;<br />
+            Все права защищены. <time datetime="2010">2010</time>-<time datetime="2023">2023</time>
           </p>
           <ul class="footer-info-links">
             <li class="footer-info-links__link"><a href="/">Пользовательское соглашение</a></li>

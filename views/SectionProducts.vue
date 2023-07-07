@@ -1,6 +1,6 @@
 <template>
   <v-section class="section-products" v-bind="sectionSettings">
-    <BlockProductList
+    <block-product-list
       :list="productAdapter.getProducts(products)"
       :need-slider="dataSettings.needSlider"
       :loading="pending" />
@@ -27,9 +27,9 @@
 
   const productsCode = ref(props.dataSettings.productsCode);
 
-  const { data: products, pending } = useAsyncData(`preview-products-${productsCode.value}`, () => {
-    return productService.getProducts({ code: productsCode.value });
-  });
+  const { data: products, pending } = useAsyncData(`preview-products-${productsCode.value}`, () =>
+    productService.getProducts({ code: productsCode.value }),
+  );
 
   onMounted(async () => {
     if (products.value) {

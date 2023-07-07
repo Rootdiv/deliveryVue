@@ -1,10 +1,10 @@
 <template>
   <div class="product-card-item">
     <span v-if="count" class="count" v-text="count" />
-    <RouterLink :to="url" class="image-wrapper">
+    <router-link :to="url" class="image-wrapper">
       <div class="image-skeleton" />
       <img v-lazy-load :src="image.src" class="image is-image-loading" :alt="image.alt" />
-    </RouterLink>
+    </router-link>
     <div class="info">
       <div class="info-header">
         <p class="title" v-text="title" />
@@ -13,13 +13,13 @@
       <p class="description" v-text="description" />
       <div class="info-bottom" :class="{ 'info-bottom--counted': Boolean(count) }">
         <button v-if="count" type="button" class="button">
-          <v-icon name="minus" class="minus" @click="count--" />
+          <v-icon name="minus" class="minus" @click="cartService.removeFromCart(getProductData())" />
         </button>
         <span class="price">{{ count ? price * count : price }} &#8381;</span>
         <button v-if="count" type="button" class="button">
-          <v-icon name="plus" class="plus" @click="count++" />
+          <v-icon name="plus" class="plus" @click="cartService.addToCart(getProductData())" />
         </button>
-        <button v-else type="button" class="button" @click="count++">
+        <button v-else type="button" class="button" @click="cartService.addToCart(getProductData())">
           <v-icon name="cart" />
         </button>
       </div>
@@ -28,7 +28,10 @@
 </template>
 
 <script setup>
-  defineProps({
+  import { storeToRefs } from 'pinia';
+  import useCartStore from '@/store/modules/cart.ts';
+
+  const props = defineProps({
     id: {
       type: Number,
       default: -1,
@@ -62,7 +65,33 @@
     },
   });
 
-  const count = ref(0);
+  const { cart } = storeToRefs(useCartStore());
+  const isReady = ref(false);
+
+  onMounted(() => {
+    isReady.value = true;
+  });
+
+  const count = computed(() =>
+    isReady.value ? cart.value.find((cartItem) => cartItem.product.id === props.id)?.count || 0 : 0,
+  );
+
+  const root = useNuxtApp();
+  const { cart: cartService } = root.$services;
+  const { product: productAdapter } = root.$adapters;
+
+  const getProductData = () =>
+    productAdapter.getProduct({
+      id: props.id,
+      title: props.title,
+      weight: props.weight,
+      price: props.price,
+      description: props.description,
+      image: {
+        src: props.image.src,
+        alt: props.image.alt,
+      },
+    });
 </script>
 
 <style lang="scss" scoped>

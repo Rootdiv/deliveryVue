@@ -1,5 +1,4 @@
-export interface IBanner {
-  toObject(): unknown;
+interface IBannerData {
   id: number | null;
 
   image:
@@ -9,4 +8,8 @@ export interface IBanner {
       }
     | string
     | null;
+}
+
+export interface IBanner extends IBannerData {
+  toObject: () => IBannerData;
 }

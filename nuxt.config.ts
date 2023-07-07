@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
+    head: { title: 'Delivery Vue Nuxt App' },
     pageTransition: { name: 'page' },
     layoutTransition: { name: 'layout' },
   },

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <SectionBannerCarousel />
-    <SectionProducts v-bind="productsColdsSacksData" />
-    <SectionProducts v-bind="productsHotSnacksData" />
-    <SectionProducts v-bind="productsMeatData" />
+    <section-banner-carousel />
+    <section-products v-bind="productsColdsSacksData" />
+    <section-products v-bind="productsHotSnacksData" />
+    <section-products v-bind="productsMeatData" />
   </div>
 </template>
 

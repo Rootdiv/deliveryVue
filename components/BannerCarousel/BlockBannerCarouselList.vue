@@ -15,7 +15,7 @@
         </template>
         <template v-else>
           <div v-for="banner in banners" :key="banner.id" :class="{ 'swiper-slide': needSlider }">
-            <BlockBannerCarouselItem v-bind="banner" />
+            <block-banner-carousel-item v-bind="banner" />
           </div>
         </template>
       </div>

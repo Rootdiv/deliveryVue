@@ -9,6 +9,9 @@ export default (context: nuxtContext) => {
 
     async getBanners(params = {}) {
       const result = await BannerService.bannerMethods.getBanners(params);
+
+      if (!result?.length) return [];
+
       return BannerService.bannerAdapters.getBanners(result).map((bannerModel: IBanner) => bannerModel.toObject());
     }
   }

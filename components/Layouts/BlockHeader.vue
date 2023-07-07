@@ -26,7 +26,10 @@
 </template>
 
 <script setup>
-  const cartItemsCount = ref(0);
+  import { storeToRefs } from 'pinia';
+  import useCartStore from '@/store/modules/cart.ts';
+
+  const { cartItemsCount } = storeToRefs(useCartStore());
 
   const isReady = ref(false);
   onMounted(() => {

@@ -1,4 +1,4 @@
-export interface IProduct {
+export interface IProductData {
   toObject(): unknown;
   id: number | null;
   title: string | null;
@@ -13,4 +13,8 @@ export interface IProduct {
       }
     | string
     | null;
+}
+
+export interface IProduct extends IProductData {
+  toObject: () => IProductData;
 }
