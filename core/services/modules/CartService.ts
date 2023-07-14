@@ -3,9 +3,11 @@ import useCartStore from '@/store/modules/cart.ts';
 import { ICartItem } from '@/types/CartInterface.ts';
 import { IProduct } from '@/types/ProductInterface.ts';
 import { storeToRefs } from 'pinia';
+import useSettingsStore from '@/store/modules/settings.ts';
 
 export default (context: nuxtContext) => {
   const cartStore = useCartStore();
+  const settingsStore = useSettingsStore();
 
   class CartService {
     private static cartAdapter = context.$adapters.cart;
@@ -23,6 +25,9 @@ export default (context: nuxtContext) => {
     saveCart(items: ICartItem[]) {
       const preparedItems = items.map((item) => item.toObject());
       localStorage.setItem('nuxt-cart', JSON.stringify(preparedItems));
+      const { finalPrice } = cartStore;
+      const { minimalDeliveryPrice } = settingsStore;
+      useCookie('order-page-access').value = finalPrice >= minimalDeliveryPrice;
     }
 
     addToCart(item: IProduct) {

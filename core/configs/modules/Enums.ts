@@ -1,4 +1,6 @@
-export default (ctx: any) => {
+import { nuxtContext } from '@nuxt/types';
+
+export default (context: nuxtContext) => {
   const enums = {
     products: {
       cold: {
@@ -16,7 +18,17 @@ export default (ctx: any) => {
         code: 'main',
       },
     },
+    deliveryTypes: {
+      pickup: {
+        value: 'pickup',
+        text: 'Самовывоз',
+      },
+      delivery: {
+        value: 'delivery',
+        text: 'Доставка',
+      },
+    },
   } as const;
 
-  ctx.$configs.enums = enums;
+  context.$configs.enums = enums;
 };

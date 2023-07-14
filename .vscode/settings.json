@@ -3,5 +3,6 @@
   "css.validate": false,
   "scss.validate": false,
   "stylelint.validate": ["css", "scss", "vue"],
-  "stylelint.packageManager": "yarn"
+  "stylelint.packageManager": "yarn",
+  "vue.codeActions.enabled": false
 }

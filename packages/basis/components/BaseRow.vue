@@ -103,6 +103,7 @@
 
   .row {
     display: flex;
+    width: 100%;
     flex-wrap: wrap;
 
     &.no-gap {

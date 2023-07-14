@@ -15,6 +15,7 @@
     sm?: number | string;
     isNoGrow?: boolean;
     aligment?: string;
+    justify?: string;
   };
 
   const colVaidator = (value: string): boolean => {
@@ -59,6 +60,13 @@
           return ['start', 'end', 'center', 'baseline', 'stretch'].includes(value);
         },
       },
+      justify: {
+        type: String,
+        default: 'start',
+        validator(value: string): boolean {
+          return ['start', 'end', 'center', 'space-around', 'space-between'].includes(value);
+        },
+      },
     },
     setup(props: ColProps) {
       const colModifer: ComputedRef<string> = computed((): string => {
@@ -80,12 +88,31 @@
           default:
             aligment = '';
         }
+
+        let justify = '';
+        switch (props.justify) {
+          case 'end':
+            justify = 'jc-fe ';
+            break;
+          case 'center':
+            justify = 'jc-c ';
+            break;
+          case 'space-around':
+            justify = 'jc-sa ';
+            break;
+          case 'space-between':
+            justify = 'jc-sb ';
+            break;
+          case 'start':
+          default:
+            justify = '';
+        }
         const colsLg = props.lg ? `col-lg-${props.lg} ` : '';
         const colsMd = props.md ? `col-md-${props.md} ` : '';
         const colsSm = props.sm ? `col-sm-${props.sm} ` : '';
         const cols = props.lg && props.md && props.sm ? '' : `col-${props.col} `;
         const isNoGrow = props.isNoGrow ? 'no-grow ' : '';
-        return `${cols}${colsLg}${colsMd}${colsSm}${aligment}${isNoGrow}`;
+        return `${cols}${colsLg}${colsMd}${colsSm}${justify}${aligment}${isNoGrow}`;
       });
 
       return {
@@ -148,13 +175,41 @@
       align-self: flex-end;
     }
 
+    &.jc-sa {
+      justify-content: space-around;
+    }
+
+    &.jc-sb {
+      justify-content: space-between;
+    }
+
+    &.jc-c {
+      justify-content: center;
+    }
+
+    &.jc-fe {
+      display: flex;
+      justify-content: flex-end;
+    }
+
     .no-gap & {
       padding-right: 0 !important;
       padding-left: 0 !important;
     }
+
+    .is-debug {
+      .row.no-gap & {
+        box-shadow: inset 0 0 0 1px rgba(96, 125, 139, 40%) !important;
+      }
+    }
   }
 
   @include mobile {
+    .is-debug .col {
+      box-shadow: inset 0 0 0 1px rgba(96, 125, 139, 40%), inset $colGapMobile 0 0 0 rgba(128, 203, 196, 20%),
+        inset (-$colGapMobile) 0 0 0 rgba(128, 203, 196, 20%);
+    }
+
     :not(.offset-large),
     :not(.offset-small) {
       .col {
@@ -183,6 +238,11 @@
   }
 
   @include tablet {
+    .is-debug .col {
+      box-shadow: inset 0 0 0 1px rgba(96, 125, 139, 40%), inset $colGapTablet 0 0 0 rgba(128, 203, 196, 20%),
+        inset (-$colGapTablet) 0 0 0 rgba(128, 203, 196, 20%);
+    }
+
     .col {
       padding-right: $colGapTablet;
       padding-left: $colGapTablet;
@@ -201,6 +261,11 @@
   }
 
   @include desktop {
+    .is-debug .col {
+      box-shadow: inset 0 0 0 1px rgba(96, 125, 139, 40%), inset $colGapDesktop 0 0 0 rgba(128, 203, 196, 20%),
+        inset (-$colGapDesktop) 0 0 0 rgba(128, 203, 196, 20%);
+    }
+
     :not(.offset-large),
     :not(.offset-small) {
       .col {

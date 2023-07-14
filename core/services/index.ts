@@ -4,11 +4,12 @@ import APIClientService from '@/core/services/modules/APIClientService.ts';
 import BannerService from '@/core/services/modules/BannerService.ts';
 import ProductService from '@/core/services/modules/ProductService.ts';
 import CartService from '@/core/services/modules/CartService.ts';
+import ValidatorService from '@/core/services/modules/ValidatorService.ts';
 
-const serviceList: coreFunctionList = [APIClientService, BannerService, ProductService, CartService];
+const servicesList: coreFunctionList = [APIClientService, BannerService, ProductService, CartService, ValidatorService];
 
 export default (context: nuxtContext) => {
   class ServicesLocator {}
   context.$services = new ServicesLocator();
-  serviceList.forEach((fn) => fn(context));
+  servicesList.forEach((fn) => fn(context));
 };
