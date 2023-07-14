@@ -1,6 +1,6 @@
 <template>
   <v-section :is-full="true" class="section-banner-carousel">
-    <block-banner-carousel-list :banners="bannerAdapter.getBanners(banners)" :loading="pending" />
+    <block-banner-carousel-list :banners="bannerAdapter.getBanners(banners || [])" :loading="pending" />
   </v-section>
 </template>
 

@@ -25,8 +25,8 @@ export default (context: nuxtContext) => {
       return ProductAdapter.productFabric.create(updatedProduct);
     }
 
-    getProducts(product: IProduct[]) {
-      return product.map(this.getProduct);
+    getProducts(products: IProduct[]) {
+      return products.map(this.getProduct);
     }
   }
 

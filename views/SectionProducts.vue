@@ -1,7 +1,7 @@
 <template>
   <v-section class="section-products" v-bind="sectionSettings">
     <block-product-list
-      :list="productAdapter.getProducts(products)"
+      :list="productAdapter.getProducts(products || [])"
       :need-slider="dataSettings.needSlider"
       :loading="pending" />
   </v-section>
