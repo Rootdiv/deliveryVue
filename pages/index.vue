@@ -50,4 +50,6 @@
       productsCode: productsEnum.meat.code,
     },
   });
+
+  defineEmits(['vnode-unmounted']);
 </script>

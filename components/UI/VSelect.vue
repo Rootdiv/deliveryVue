@@ -73,7 +73,7 @@
     },
   });
 
-  const emit = defineEmits(['update:modelValue']);
+  const emit = defineEmits(['update:model-value']);
 
   const isActive = ref(false);
   const valueProp = computed(() => props.modelValue);
@@ -109,7 +109,7 @@
     const selectedOption = getOptionByValue(value);
     model.value = selectedOption ? selectedOption.text : '';
     isActive.value = false;
-    emit('update:modelValue', value);
+    emit('update:model-value', value);
   };
 
   const setActive = () => {

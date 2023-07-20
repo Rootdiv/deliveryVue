@@ -15,4 +15,6 @@
   import useCartStore from '@/store/modules/cart.ts';
 
   const { cart } = storeToRefs(useCartStore());
+
+  defineEmits(['vnode-unmounted']);
 </script>

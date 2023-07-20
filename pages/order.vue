@@ -1,6 +1,17 @@
 <template>
   <v-section title="Оформление заказа" class="order-section">
     <client-only>
+      <div v-show="isOffDelivery" class="order-off">
+        <div class="order-off-message">
+          <p class="order-off-title">Сегодня мы уже не доставляем.</p>
+          <p class="order-off-subtitle">
+            Заказы принимаем до {{ stopDelivery }}, доставляем с {{ startDelivery }} до {{ endDelivery }}
+          </p>
+        </div>
+        <div class="order-off-image">
+          <img v-lazy-load src="@/assets/images/offDelivery.svg" alt="" />
+        </div>
+      </div>
       <form class="order-form">
         <form-card>
           <form-group title="1. Контактная информация" class="order-contacts">
@@ -102,7 +113,11 @@
                   :error="stateErrors.rulesAgree" />
               </v-col>
               <v-col :col="5" justify="end">
-                <button type="submit" class="order-submit__button" @click.prevent="createOrder">
+                <button
+                  type="submit"
+                  class="order-submit__button"
+                  :disabled="isOffDelivery"
+                  @click.prevent="createOrder">
                   Оформить заказ
                 </button>
               </v-col>
@@ -119,6 +134,29 @@
   import FormGroup from '@/components/Form/FormGroup.vue';
   import useVuelidate from '@vuelidate/core';
   import { useValidationErrors } from '@/composables/validationErrors.ts';
+
+  const isOffDelivery = ref(true);
+
+  const startDelivery = '08:30';
+  const endDelivery = '21:30';
+  const stopDelivery = '20:50';
+  const date = new Date();
+  const dd = String(date.getDate()).padStart(2, '0');
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const yyyy = date.getFullYear();
+  const today = `${yyyy}-${mm}-${dd}`;
+
+  const dateStart = new Date(`${today} ${startDelivery}`);
+  const dateEnd = new Date(`${today} ${endDelivery}`);
+  const dateStop = new Date(`${today} ${stopDelivery}`);
+
+  if (date.getTime() > dateStart.getTime() && date.getTime() < dateStop.getTime()) {
+    isOffDelivery.value = false;
+
+    if (date.getTime() > dateEnd.getTime()) {
+      isOffDelivery.value = false;
+    }
+  }
 
   // eslint-disable-next-line no-undef
   definePageMeta({
@@ -270,6 +308,8 @@
       navigateTo('/');
     }
   };
+
+  defineEmits(['vnode-unmounted']);
 </script>
 
 <style lang="scss" scoped>
@@ -284,6 +324,38 @@
       /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
       :deep(.section-header) {
         padding-left: 3.5rem;
+      }
+    }
+
+    &-off {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      background-color: #2b2829;
+      color: $white;
+
+      &-message {
+        display: flex;
+        flex-direction: column;
+        padding: 30px 0 43px 30px;
+        gap: 20px;
+      }
+
+      &-title {
+        font-family: 'Gilroy Bold';
+        font-size: 1.84rem;
+      }
+
+      &-subtitle {
+        font-family: Gilroy;
+        font-size: 1.5rem;
+      }
+
+      &-image {
+        padding: 23px 56px 0;
+        line-height: 0;
       }
     }
 

@@ -33,13 +33,13 @@
     },
   });
 
-  const emit = defineEmits(['update:modelValue']);
+  const emit = defineEmits(['update:model-value']);
 
   const isChecked = ref(props.modelValue === 'true');
 
   const updateValue = (value) => {
     isChecked.value = value;
-    emit('update:modelValue', value);
+    emit('update:model-value', value);
   };
 </script>
 

@@ -25,7 +25,7 @@
     },
   });
 
-  const emit = defineEmits(['input']);
+  const emit = defineEmits(['input', 'update:model-value']);
 
   const selectedOption = ref(null);
 
