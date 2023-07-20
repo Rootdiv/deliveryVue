@@ -46,6 +46,10 @@ export default defineStore('cart', () => {
     }
   };
 
+  const clearCart = () => {
+    cartState.value = [];
+  };
+
   watch(
     cartState,
     () => {
@@ -54,5 +58,5 @@ export default defineStore('cart', () => {
     { deep: true },
   );
 
-  return { cart, setCartItem, addCartItem, deleteCartItem, cartItemsCount, finalPrice };
+  return { cart, setCartItem, addCartItem, deleteCartItem, cartItemsCount, finalPrice, clearCart };
 });

@@ -165,6 +165,7 @@
 
   const root = useNuxtApp();
   const { validator: validatorService } = root.$services;
+  const { cart: cartService } = root.$services;
   const { constants, enums } = root.$configs;
 
   const deliveryTypes = [enums.deliveryTypes.delivery, enums.deliveryTypes.pickup];
@@ -305,6 +306,7 @@
     if (isValidationState && (isValidationAddress || isValidationPickup)) {
       // eslint-disable-next-line no-alert
       alert('Ваш заказ успешно оформлен');
+      cartService.clearCart();
       navigateTo('/');
     }
   };

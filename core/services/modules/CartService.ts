@@ -48,6 +48,11 @@ export default (context: nuxtContext) => {
     clearAllOfProduct(item: IProduct) {
       this.removeFromCart(item, true);
     }
+
+    clearCart() {
+      const { clearCart } = cartStore;
+      clearCart();
+    }
   }
   context.$services.cart = new CartService();
 };
