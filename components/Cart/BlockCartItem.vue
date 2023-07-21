@@ -43,7 +43,7 @@
 <script setup>
   const props = defineProps({
     id: {
-      type: Number,
+      type: String,
       default: -1,
     },
     title: {

@@ -1,14 +1,13 @@
 import { nuxtContext } from '@nuxt/types';
-import { IEndpoints } from '@/types/IEndpointsInterface.ts';
 
 export default (context: nuxtContext) => {
   class ProductMethods {
-    private static endpoints: IEndpoints = context.$configs.endpoints;
+    private static graphqlEndpoints = context.$configs.graphqlEndpoints;
 
     async getProducts(params = {}) {
-      const config = ProductMethods.endpoints.product.getProducts(params);
-      const result = await context.$services.useAPI.request({ config });
-      return result;
+      const config = ProductMethods.graphqlEndpoints.product.getProducts;
+      const result = await context.$services.useApollo.request({ config, params });
+      return result?.data?.allProducts || [];
     }
   }
 

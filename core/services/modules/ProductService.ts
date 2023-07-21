@@ -16,7 +16,7 @@ export default (context: nuxtContext) => {
     }
 
     async getProducts(params: any = {}) {
-      const result = (await ProductService.productMethods.getProducts({ ...params, _limit: 10 })) || [];
+      const result = (await ProductService.productMethods.getProducts({ variables: { ...params, _limit: 10 } })) || [];
 
       if (!result.length) return [];
 

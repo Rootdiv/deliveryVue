@@ -1,6 +1,7 @@
 import { nuxtContext } from '@nuxt/types';
 
 import FetchService from '@/core/services/modules/apiServices/FetchService.ts';
+import ApolloServices from '@/core/services/modules/apiServices/ApolloServices.ts';
 
 export default (context: nuxtContext) => {
   class APIClientService {
@@ -18,4 +19,5 @@ export default (context: nuxtContext) => {
     }
   }
   context.$services.useAPI = new APIClientService(FetchService(context), context);
+  context.$services.useApollo = new APIClientService(ApolloServices(context), context);
 };
