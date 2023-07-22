@@ -1,5 +1,4 @@
 export interface IProductData {
-  toObject(): unknown;
   id: number | null;
   title: string | null;
   description: string | null;

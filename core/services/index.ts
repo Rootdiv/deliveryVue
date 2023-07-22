@@ -5,8 +5,16 @@ import BannerService from '@/core/services/modules/BannerService.ts';
 import ProductService from '@/core/services/modules/ProductService.ts';
 import CartService from '@/core/services/modules/CartService.ts';
 import ValidatorService from '@/core/services/modules/ValidatorService.ts';
+import PromoService from '@/core/services/modules/PromoService.ts';
 
-const servicesList: coreFunctionList = [APIClientService, BannerService, ProductService, CartService, ValidatorService];
+const servicesList: coreFunctionList = [
+  APIClientService,
+  BannerService,
+  ProductService,
+  CartService,
+  ValidatorService,
+  PromoService,
+];
 
 export default (context: nuxtContext) => {
   class ServicesLocator {}

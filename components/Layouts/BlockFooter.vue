@@ -9,17 +9,31 @@
             Все права защищены. <time datetime="2010">2010</time>-<time datetime="2023">2023</time>
           </p>
           <ul class="footer-info-links">
-            <li class="footer-info-links__link"><a href="/">Пользовательское соглашение</a></li>
-            <li class="footer-info-links__link"><a href="/">Карта сайта</a></li>
-            <li class="footer-info-links__link"><a href="/">Политика конфиденциальности</a></li>
+            <li class="footer-info-links__link">
+              <a href="/">Пользовательское соглашение</a>
+            </li>
+            <li class="footer-info-links__link">
+              <a href="/">Карта сайта</a>
+            </li>
+            <li class="footer-info-links__link">
+              <a href="/">Политика конфиденциальности</a>
+            </li>
           </ul>
         </div>
         <nav class="footer-navigation">
           <ul class="footer-navigation-list">
-            <li class="footer-navigation-list__item"><a href="/">О ресторане</a></li>
-            <li class="footer-navigation-list__item"><a href="/">Условия доставки</a></li>
-            <li class="footer-navigation-list__item"><a href="/">Возврат товара</a></li>
-            <li class="footer-navigation-list__item"><a href="/">Акции</a></li>
+            <li class="footer-navigation-list__item">
+              <a href="/">О ресторане</a>
+            </li>
+            <li class="footer-navigation-list__item">
+              <a href="/">Условия доставки</a>
+            </li>
+            <li class="footer-navigation-list__item">
+              <a href="/">Возврат товара</a>
+            </li>
+            <li class="footer-navigation-list__item">
+              <v-link url="/promo">Акции</v-link>
+            </li>
           </ul>
         </nav>
       </div>

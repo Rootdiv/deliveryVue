@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section-banner-carousel />
+    <section-banner-carousel v-bind="bannersData" />
     <section-products v-bind="productsColdsSacksData" />
     <section-products v-bind="productsHotSnacksData" />
     <section-products v-bind="productsMeatData" />
@@ -13,7 +13,7 @@
 
   const root = useNuxtApp();
   const { products: productsEnum, banners: bannersEnum } = root.$configs.enums;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
   const bannersData = ref({
     dataSettings: {
       needSlider: true,
